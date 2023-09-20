@@ -100,47 +100,110 @@ while (tryagain == "yes")
         // Console.WriteLine($"{player2} does {damage2} damage to {player1}");
         // Console.ReadLine();
 
-        Console.WriteLine($"{player1}, (A)cast strong but difficult spell or (B)stab lightly with a dagger?");
-        string attack = Console.ReadLine().ToLower();
+        Console.WriteLine($"{player1}, (A)cast strong but difficult spell, or (B)stab lightly with a dagger?");
+        string attack1 = Console.ReadLine().ToLower();
         // player1 attack
-        if (attack == "a")
+        
+        moveon = "no";
+        while (moveon == "no")
         {
-            int hitormiss1a = generator.Next(100);
+            if (attack1 == "a")
+            {
+                int hitormiss1a = generator.Next(100);
 
-            if (hitormiss1a > 60)
-            {
-                int damage1 = generator.Next(30,60);
-                hp2 -= damage1;
-                Console.WriteLine($"HIT. {player1} does {damage1} damage to {player2}.");
+                if (hitormiss1a > 50)
+                {
+                    int damage1 = generator.Next(30,60);
+                    hp2 -= damage1;
+                    Console.WriteLine($"HIT. {player1} does {damage1} damage to {player2}.");
+                    moveon = "yes";
+                }
+                else
+                {
+                    Console.WriteLine($"MISS. {player1} does no damage to {player2}.");
+                    moveon = "yes";
+                }
             }
-            else
+            if (attack1 == "b")
             {
-                Console.WriteLine($"MISS. {player1} does no damage to {player2}.");
-            }
-        if (attack == "b")
-        {
-            int hitormiss1b = generator.Next(100);
+                int hitormiss1b = generator.Next(100);
 
-            if (hitormiss1b > 20)
-            {
-                int damage2 = generator.Next(10, 30);
-                hp2 -= damage2;
-                Console.WriteLine($"HIT. {player2} does {damage2} damage to {player1}.");
+                if (hitormiss1b > 10)
+                {
+                    int damage1 = generator.Next(10, 30);
+                    hp2 -= damage1;
+                    Console.WriteLine($"HIT. {player1} does {damage1} damage to {player2}.");
+                    moveon = "yes";
+                }
+                else
+                {
+                    Console.WriteLine($"MISS. {player1} does no damage to {player2}.");
+                    moveon = "yes";
+                }
             }
-            else
+             else if (attack1 != "a" && attack1 != "b")
             {
-                Console.WriteLine($"MISS. {player2} does no damage to {player1}.");
+                Console.WriteLine("Write A or B.");
+                attack1 = Console.ReadLine();
             }
         }
-        }
 
+        Console.ReadLine();
+        Console.WriteLine($"{player2}, (A)cast strong but difficult spell, or (B)stab lightly with a dagger?");
+        string attack2 = Console.ReadLine().ToLower();
+
+        moveon = "no";
+        while (moveon == "no")
+        {
+            if (attack2 == "a")
+            {
+                int hitormiss2a = generator.Next(100);
+
+                if (hitormiss2a > 50)
+                {
+                    int damage2 = generator.Next(30,60);
+                    hp1 -= damage2;
+                    Console.WriteLine($"HIT. {player2} does {damage2} damage to {player1}.");
+                    moveon ="yes";
+                }
+                else
+                {
+                    Console.WriteLine($"MISS. {player2} does no damage to {player1}.");
+                    moveon = "yes";
+                }
+            }
+            if (attack2 == "b")
+            {
+                int hitormiss2b = generator.Next(100);
+
+                if (hitormiss2b > 10)
+                {
+                    int damage2 = generator.Next(10, 30);
+                    hp1 -= damage2;
+                    Console.WriteLine($"HIT. {player2} does {damage2} damage to {player1}.");
+                    moveon = "yes";
+                }
+                else
+                {
+                    Console.WriteLine($"MISS. {player2} does no damage to {player1}.");
+                    moveon = "yes";
+                }
+            }
+            else if (attack2 != "a" && attack2 != "b")
+            {
+                Console.WriteLine("Write A or B.");
+                attack2 = Console.ReadLine();
+            }
+        }
     }
 
 
-    // the end result
+    // the end result-----------------------------------------
     if (hp1 <= 0)
     {
         Console.WriteLine("");
+        Console.WriteLine($"{player1}'s HP: {hp1}");
+        Console.WriteLine($"{player2}'s HP: {hp2}");
         Console.WriteLine("GAME OVER!");
         Console.WriteLine($"The winner is {player2}!");
         Console.ReadLine();
@@ -150,6 +213,8 @@ while (tryagain == "yes")
     else if (hp2 <= 0)
     {
         Console.WriteLine("");
+        Console.WriteLine($"{player1}'s HP: {hp1}");
+        Console.WriteLine($"{player2}'s HP: {hp2}");
         Console.WriteLine("GAME OVER!");
         Console.WriteLine($"The winner is {player1}!");
         Console.ReadLine();
@@ -159,10 +224,18 @@ while (tryagain == "yes")
     else if (hp1 <= 0 && hp2 <= 0)
     {
         Console.WriteLine("");
+        Console.WriteLine($"{player1}'s HP: {hp1}");
+        Console.WriteLine($"{player2}'s HP: {hp2}");
         Console.WriteLine("GAME OVER!");
         Console.WriteLine("You both lost. Or won? Depends on how you look at it. In any case, you're both dead.");
         Console.ReadLine();
         Console.WriteLine("Would you like to try again?");
         tryagain = Console.ReadLine().ToLower();
     }
+
+    while (tryagain != "yes" && tryagain != "no")
+        {
+            Console.WriteLine("Yes or no?");
+            tryagain = Console.ReadLine().ToLower();
+        }
 }
