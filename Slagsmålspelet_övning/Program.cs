@@ -6,15 +6,26 @@ int hp1 = 100;
 int hp2 = 100;
 string tryagain = "yes";
 
+// Initial information
+
+Console.WriteLine("Welcome!");
+Console.ReadLine();
+Console.WriteLine("Here is a short summary the rules of the game: ");
+Console.ReadLine();
+Console.WriteLine("Win by beign the only one left alive or by having the most HP left after the rounds are over.");
+Console.ReadLine();
+Console.WriteLine("That's it. Now lets start. I'm getting impatient.");
+Console.ReadLine();
+
 // generator = variabel som kan innehålla en slumpgenerator
 Random generator = new Random();
 
 while (tryagain == "yes")
 {
+
     int round = 0;
 
 
-    // namn
     Console.WriteLine("Player 1. Please name your Warrior.");
     Console.WriteLine(@"   |\---/|
    | ,_, |
@@ -83,7 +94,29 @@ jgs          m m");
             moveon = "yes";
         }
     }
+    // namn klart här----------------------------------
+    // hur många rundor vv
 
+    Console.WriteLine("");
+    Console.WriteLine("How many rounds would you like to go?");
+    Console.WriteLine("Type in a number between 5 and 20.");
+    int NrOfRounds = Convert.ToInt32(Console.ReadLine());
+
+    moveon = "no";
+    while (moveon == "no")
+    {
+        if (NrOfRounds < 5)
+        {
+            Console.WriteLine("You can not choose a number lower than 5.");
+            Console.WriteLine("Choose a new number of rounds.");
+            NrOfRounds = Convert.ToInt32(Console.ReadLine());
+        }
+        else
+        {
+            Console.WriteLine("no");
+            Console.ReadLine();
+        }
+    }
 
     // rundorna börjar här-----------------------------
     while (hp1 > 0 && hp2 > 0)
@@ -92,6 +125,7 @@ jgs          m m");
         Console.WriteLine("");
         round++;
         Console.WriteLine($"Round {round}:");
+        Console.WriteLine("");
         Console.WriteLine($"{player1}'s HP: {hp1}");
         Console.WriteLine($"{player2}'s HP: {hp2}");
         Console.ReadLine();
