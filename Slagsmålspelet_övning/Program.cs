@@ -14,7 +14,7 @@ Console.WriteLine("Here is a short summary the rules of the game: ");
 Console.ReadLine();
 Console.WriteLine("Win by beign the only one left alive or by having the most HP left after the rounds are over.");
 Console.ReadLine();
-Console.WriteLine("That's it. Now lets start. I'm getting impatient.");
+Console.WriteLine("That's it. Now lets start.");
 Console.ReadLine();
 
 // generator = variabel som kan innehålla en slumpgenerator
@@ -111,10 +111,26 @@ jgs          m m");
             Console.WriteLine("Choose a new number of rounds.");
             NrOfRounds = Convert.ToInt32(Console.ReadLine());
         }
-        else
+        else if (NrOfRounds > 20)
         {
-            Console.WriteLine("no");
-            Console.ReadLine();
+            Console.WriteLine("You can not choose a number higher than 20.");
+            Console.WriteLine("Choose a new number of rounds.");
+            NrOfRounds = Convert.ToInt32(Console.ReadLine());
+        }
+        else if (NrOfRounds <= 20 && NrOfRounds >= 5)
+        {
+            moveon = "yes";
+        }
+        else
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        {
+            Console.WriteLine("No.");
+            Console.WriteLine("Choose a number of rounds.");
+            NrOfRounds = Convert.ToInt32(Console.ReadLine());
         }
     }
 
@@ -264,57 +280,127 @@ jgs          m m");
         }
     }
 
+    // End of rounds/Someone dies--------------------------
+    // ----------------------------------------------------
 
-    // the end result-----------------------------------------
-    if (hp1 <= 0)
-    {
-        Console.WriteLine("");
-        Console.WriteLine($"{player1}'s HP: {hp1}");
-        Console.WriteLine($"{player2}'s HP: {hp2}");
-        Console.WriteLine("GAME OVER!");
-        Console.WriteLine($"The winner is {player2}!");
-        Console.WriteLine(@"              __
-             /'{>
-         ____) (____
-       //'--;   ;--'\\
-      ///////\_/\\\\\\\
-jgs          m m");
-        Console.ReadLine();
-        Console.WriteLine("Would you like to try again?");
-        tryagain = Console.ReadLine().ToLower();
-    }
-    else if (hp2 <= 0)
-    {
-        Console.WriteLine("");
-        Console.WriteLine($"{player1}'s HP: {hp1}");
-        Console.WriteLine($"{player2}'s HP: {hp2}");
-        Console.WriteLine("GAME OVER!");
-        Console.WriteLine($"The winner is {player1}!");
-        Console.WriteLine(@"   |\---/|
-   | ,_, |
-    \_`´/-..----.
- ___/ `   ' ,""+ \  sk
-(__...'   __\    |`.___.';
-  (_,...'(_,.`__)/'.....+");
-        Console.ReadLine();
-        Console.WriteLine("Would you like to try again?");
-        tryagain = Console.ReadLine().ToLower();
-    }
-    else if (hp1 <= 0 && hp2 <= 0)
-    {
-        Console.WriteLine("");
-        Console.WriteLine($"{player1}'s HP: {hp1}");
-        Console.WriteLine($"{player2}'s HP: {hp2}");
-        Console.WriteLine("GAME OVER!");
-        Console.WriteLine("You both lost. Or won? Depends on how you look at it. In any case, you're both dead.");
-        Console.ReadLine();
-        Console.WriteLine("Would you like to try again?");
-        tryagain = Console.ReadLine().ToLower();
-    }
-
-    while (tryagain != "yes" && tryagain != "no")
+        if (round == NrOfRounds || hp1 <= 0 || hp2 <= 0)
         {
-            Console.WriteLine("Yes or no?");
-            tryagain = Console.ReadLine().ToLower();
+            if (hp1 > hp2 && hp1 > 0)
+            {
+                Console.WriteLine("");
+                Console.WriteLine($"{player1}'s HP: {hp1}");
+                Console.WriteLine($"{player2}'s HP: {hp2}");
+                Console.WriteLine("GAME OVER!");
+                Console.WriteLine($"The winner is {player1}!");
+                Console.WriteLine(@"       |\---/|
+        | ,_, |
+        \_`´/-..----.
+    ___/ `   ' ,""+ \  sk
+    (__...'   __\    |`.___.';
+    (_,...'(_,.`__)/'.....+");
+                Console.ReadLine();
+                Console.WriteLine("Would you like to try again?");
+                tryagain = Console.ReadLine().ToLower();
+            }
+            else if (hp2 > hp1 && hp2 > 0)
+            {
+                Console.WriteLine("");
+                Console.WriteLine($"{player1}'s HP: {hp1}");
+                Console.WriteLine($"{player2}'s HP: {hp2}");
+                Console.WriteLine("GAME OVER!");
+                Console.WriteLine($"The winner is {player2}!");
+                Console.WriteLine(@"              __
+                    /'{>
+                ____) (____
+            //'--;   ;--'\\
+            ///////\_/\\\\\\\
+        jgs          m m");
+                Console.ReadLine();
+                Console.WriteLine("Would you like to try again?");
+                tryagain = Console.ReadLine().ToLower();
+            }
+            else if (hp1 == hp2 && hp1 > 0)
+            {
+                Console.WriteLine("");
+                Console.WriteLine($"{player1}'s HP: {hp1}");
+                Console.WriteLine($"{player2}'s HP: {hp2}");
+                Console.WriteLine("GAME OVER!");
+                Console.WriteLine("You both won. :)");
+                Console.ReadLine();
+                Console.WriteLine("Would you like to try again?");
+                tryagain = Console.ReadLine().ToLower();
+            }
+            else if (hp1 == hp2 && hp1 < 0)
+            {
+                Console.WriteLine("");
+                Console.WriteLine($"{player1}'s HP: {hp1}");
+                Console.WriteLine($"{player2}'s HP: {hp2}");
+                Console.WriteLine("GAME OVER!");
+                Console.WriteLine("You both lost. :(");
+                Console.ReadLine();
+                Console.WriteLine("Would you like to try again?");
+                tryagain = Console.ReadLine().ToLower();
+            }
+
+
+            while (tryagain != "yes" && tryagain != "no")
+            {
+                Console.WriteLine("Yes or no?");
+                tryagain = Console.ReadLine().ToLower();
+            }
         }
+
+//     // Someone dies-----------------------------------------
+//     // -----------------------------------------------------
+//     if (hp1 <= 0)
+//     {
+//         Console.WriteLine("");
+//         Console.WriteLine($"{player1}'s HP: {hp1}");
+//         Console.WriteLine($"{player2}'s HP: {hp2}");
+//         Console.WriteLine("GAME OVER!");
+//         Console.WriteLine($"The winner is {player2}!");
+//         Console.WriteLine(@"              __
+//              /'{>
+//          ____) (____
+//        //'--;   ;--'\\
+//       ///////\_/\\\\\\\
+// jgs          m m");
+//         Console.ReadLine();
+//         Console.WriteLine("Would you like to try again?");
+//         tryagain = Console.ReadLine().ToLower();
+//     }
+//     else if (hp2 <= 0)
+//     {
+//         Console.WriteLine("");
+//         Console.WriteLine($"{player1}'s HP: {hp1}");
+//         Console.WriteLine($"{player2}'s HP: {hp2}");
+//         Console.WriteLine("GAME OVER!");
+//         Console.WriteLine($"The winner is {player1}!");
+//         Console.WriteLine(@"   |\---/|
+//    | ,_, |
+//     \_`´/-..----.
+//  ___/ `   ' ,""+ \  sk
+// (__...'   __\    |`.___.';
+//   (_,...'(_,.`__)/'.....+");
+//         Console.ReadLine();
+//         Console.WriteLine("Would you like to try again?");
+//         tryagain = Console.ReadLine().ToLower();
+//     }
+//     else if (hp1 <= 0 && hp2 <= 0)
+//     {
+//         Console.WriteLine("");
+//         Console.WriteLine($"{player1}'s HP: {hp1}");
+//         Console.WriteLine($"{player2}'s HP: {hp2}");
+//         Console.WriteLine("GAME OVER!");
+//         Console.WriteLine("You both lost. Or won? Depends on how you look at it. In any case, you're both dead.");
+//         Console.ReadLine();
+//         Console.WriteLine("Would you like to try again?");
+//         tryagain = Console.ReadLine().ToLower();
+//     }
+
+//     while (tryagain != "yes" && tryagain != "no")
+//         {
+//             Console.WriteLine("Yes or no?");
+//             tryagain = Console.ReadLine().ToLower();
+//         }
 }
