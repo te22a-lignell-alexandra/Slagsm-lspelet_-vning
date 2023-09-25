@@ -16,6 +16,13 @@ while (tryagain == "yes")
 
     // namn
     Console.WriteLine("Player 1. Please name your Warrior.");
+    Console.WriteLine(@"   |\---/|
+   | ,_, |
+    \_`_/-..----.
+ ___/ `   ' ,""+ \  sk
+(__...'   __\    |`.___.';
+  (_,...'(_,.`__)/'.....+");
+    Console.WriteLine("");
     Console.Write("Name: ");
     string player1 = Console.ReadLine();
 
@@ -45,6 +52,13 @@ while (tryagain == "yes")
     Console.WriteLine("");
     Console.WriteLine("");
     Console.WriteLine("Player 2. Please name your warrior.");
+    Console.WriteLine(@"              __
+             /'{>
+         ____) (____
+       //'--;   ;--'\\
+      ///////\_/\\\\\\\
+jgs          m m");
+    Console.WriteLine("");
     Console.Write("Name: ");
     string player2 = Console.ReadLine();
 
@@ -100,7 +114,17 @@ while (tryagain == "yes")
         // Console.WriteLine($"{player2} does {damage2} damage to {player1}");
         // Console.ReadLine();
 
-        Console.WriteLine($"{player1}, (A)cast strong but difficult spell, or (B)stab lightly with a dagger?");
+        Console.WriteLine($"{player1}, (A) scratch with claws, or (B) hiss to intimmidate?");
+        Console.WriteLine(@"                      (`.-,')
+                    .-'     ;
+                _.-'   , `,-
+          _ _.-'     .'  /._
+        .' `  _.-.  /  ,'._;)
+       (       .  )-| (
+        )`,_ ,'_,'  \_;)
+('_  _,'.'  (___,))
+ `-:;.-'");
+        
         string attack1 = Console.ReadLine().ToLower();
         // player1 attack
         
@@ -132,12 +156,12 @@ while (tryagain == "yes")
                 {
                     int damage1 = generator.Next(10, 30);
                     hp2 -= damage1;
-                    Console.WriteLine($"HIT. {player1} does {damage1} damage to {player2}.");
+                    Console.WriteLine($"SUCCESS. {player1} does {damage1} emotional damage to {player2}.");
                     moveon = "yes";
                 }
                 else
                 {
-                    Console.WriteLine($"MISS. {player1} does no damage to {player2}.");
+                    Console.WriteLine($"FAIL. {player2} was not intimmidated and takes no damage.");
                     moveon = "yes";
                 }
             }
@@ -149,7 +173,16 @@ while (tryagain == "yes")
         }
 
         Console.ReadLine();
-        Console.WriteLine($"{player2}, (A)cast strong but difficult spell, or (B)stab lightly with a dagger?");
+        Console.WriteLine($"{player2}, (A) bite harshly, or (B) honk to intimmidate?");
+        Console.WriteLine(@"           ___  
+       _,-' ______
+     .'  .-'  ____7
+    /   /   ___7
+  _|   /  ___7
+>(')\ | ___7     jgs
+  \\/     \_______
+  '        _======>
+  `'----\\`");
         string attack2 = Console.ReadLine().ToLower();
 
         moveon = "no";
@@ -180,12 +213,12 @@ while (tryagain == "yes")
                 {
                     int damage2 = generator.Next(10, 30);
                     hp1 -= damage2;
-                    Console.WriteLine($"HIT. {player2} does {damage2} damage to {player1}.");
+                    Console.WriteLine($"SUCCESS. {player2} does {damage2} emotional damage to {player1}.");
                     moveon = "yes";
                 }
                 else
                 {
-                    Console.WriteLine($"MISS. {player2} does no damage to {player1}.");
+                    Console.WriteLine($"FAIL. {player1} was not intimmidates and takes no damage.");
                     moveon = "yes";
                 }
             }
@@ -206,6 +239,12 @@ while (tryagain == "yes")
         Console.WriteLine($"{player2}'s HP: {hp2}");
         Console.WriteLine("GAME OVER!");
         Console.WriteLine($"The winner is {player2}!");
+        Console.WriteLine(@"              __
+             /'{>
+         ____) (____
+       //'--;   ;--'\\
+      ///////\_/\\\\\\\
+jgs          m m");
         Console.ReadLine();
         Console.WriteLine("Would you like to try again?");
         tryagain = Console.ReadLine().ToLower();
@@ -217,6 +256,12 @@ while (tryagain == "yes")
         Console.WriteLine($"{player2}'s HP: {hp2}");
         Console.WriteLine("GAME OVER!");
         Console.WriteLine($"The winner is {player1}!");
+        Console.WriteLine(@"   |\---/|
+   | ,_, |
+    \_`´/-..----.
+ ___/ `   ' ,""+ \  sk
+(__...'   __\    |`.___.';
+  (_,...'(_,.`__)/'.....+");
         Console.ReadLine();
         Console.WriteLine("Would you like to try again?");
         tryagain = Console.ReadLine().ToLower();
