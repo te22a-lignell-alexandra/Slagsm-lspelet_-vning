@@ -228,7 +228,7 @@ while (tryagain == "yes")
             Console.WriteLine("GAME OVER!");
             Console.WriteLine($"The winner is {player1}!");
             wins1++;
-            DrawCat();
+            DrawCatWin();
         }
         else if (hp2 > hp1 && hp2 > 0)
         {
@@ -239,7 +239,7 @@ while (tryagain == "yes")
             Console.WriteLine("GAME OVER!");
             Console.WriteLine($"The winner is {player2}!");
             wins2++;
-            DrawGoose();
+            DrawGooseWin();
         }
         else if (hp1 == hp2 && hp1 > 0)
         {
@@ -359,4 +359,30 @@ static void DrawGooseAttack()
   \\/     \_______
   '        _======>
   `'----\\`");
+}
+
+static void DrawCatWin()
+{
+    Console.WriteLine(@" /\     /\
+{  `---'  }
+{  O   O  }
+~~>  V  <~~
+ \  \|/  /
+  `-----'__
+  /     \  `^\_
+ {       }\ |\_\_   W
+ |  \_/  |/ /  \_\_( )
+  \__/  /(_E     \__/
+    (  /
+     MM
+");
+}
+
+static void DrawGooseWin()
+{
+    Console.WriteLine(@"  ,~
+ ('v)__
+(/ (``/
+ \__>' hjw
+  ^^");
 }
