@@ -74,7 +74,7 @@ while (tryagain == "yes")
 
     bool success = false;
     int NrOfRounds = 0;
-    while (!success || NrOfRounds < 5 || NrOfRounds > 20)
+    while (success == false || NrOfRounds < 5 || NrOfRounds > 20)
     {
         Console.WriteLine("Type in a number between 5 and 20.");
         // int NrOfRounds = Convert.ToInt32(Console.ReadLine());
@@ -126,7 +126,7 @@ while (tryagain == "yes")
 
                 if (hitormiss1a > 55)
                 {
-                    int damage1 = generator.Next(40, 50);
+                    int damage1 = generator.Next(30, 40);
                     hp2 -= damage1;
                     Console.WriteLine($"HIT. {player1} does {damage1} damage to {player2}.");
                     moveon = "yes";
@@ -175,7 +175,7 @@ while (tryagain == "yes")
 
                 if (hitormiss2a > 55)
                 {
-                    int damage2 = generator.Next(40, 50);
+                    int damage2 = generator.Next(30, 40);
                     hp1 -= damage2;
                     Console.WriteLine($"HIT. {player2} does {damage2} damage to {player1}.");
                     moveon = "yes";
